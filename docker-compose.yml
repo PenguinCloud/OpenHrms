@@ -1,5 +1,19 @@
 ---
 version: "2.4"
 services:
-  app:
-    image: penguintech/core-ansible
+ app:
+    image: penguintech/openhrms
+    build: .
+    ports:
+     - 8069:8069
+    networks:
+      - openhrms
+    healthcheck:
+      test: ["CMD", "ansible-playbook", "entrypoint.yml", "--tag", "test"]
+      interval: 5m
+      timeout: 10s
+      retries: 5
+      start_period: 5s
+
+networks:
+  openhrms:

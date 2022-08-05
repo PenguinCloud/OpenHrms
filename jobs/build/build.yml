@@ -1,0 +1,12 @@
+---
+- name: Install dependencies
+  include_tasks:
+    file: install_dependencies.yml
+
+- name: Install openhrms.yml
+  include_tasks:
+    file: install_openhrms.yml
+
+- name: Install pip dependencies
+  include_tasks:
+    file: install_pip_dependencies.yml
