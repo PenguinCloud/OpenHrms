@@ -1,0 +1,28 @@
+---
+- name: Create empty repo for openhrms
+  file:
+    path: /opt/openhrms
+    state: directory
+
+- name: Git Clone Odoo 15
+  git:
+    repo: https://github.com/odoo/odoo.git
+    dest: /opt/openhrms/
+    depth: 1
+    version: 15.0
+    clone: yes
+    update: yes
+
+- name: Create empty repo for openhrms
+  file:
+    path: /opt/openhrms/openhrms
+    state: directory
+
+- name: Git Clone OpenHRMS
+  git:
+    repo: https://github.com/CybroOdoo/OpenHRMS.git
+    dest: /opt/openhrms/openhrms
+    depth: 1
+    version: 15.0
+    clone: yes
+    update: yes
