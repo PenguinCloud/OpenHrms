@@ -1,11 +1,20 @@
 ---
 version: "2.4"
 services:
- app:
+  postgresql:
+    image: 'bitnami/postgresql:latest'
+    environment:
+      - POSTGRESQL_USERNAME=openhrms
+      - POSTGRESQL_PASSWORD=password123
+      - POSTGRESQL_DATABASE=openhrms
+    networks:
+      - openhrms
+
+  app:
     image: penguintech/openhrms
     build: .
     ports:
-     - 8069:8069
+      - 8069:8069
     networks:
       - openhrms
     healthcheck:

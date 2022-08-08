@@ -2,3 +2,12 @@ run:
   user: ptg-user
 app:
   title: "{{ lookup('ansible.builtin.env', 'APP_TILE') }}"
+
+db:
+  host: "{{ lookup('ansible.builtin.env', 'DATABASE_HOST') }}"
+  name: "{{ lookup('ansible.builtin.env', 'DATABASE_NAME') }}"
+  user: "{{ lookup('ansible.builtin.env', 'DATABASE_USER') }}"
+  password: "{{ lookup('ansible.builtin.env', 'DATABASE_PASSWORD') }}"
+  port: "{{ lookup('ansible.builtin.env', 'DATABASE_PORT') }}"
+
+admin_password: "{{ lookup('ansible.builtin.env', 'ADMIN_PASSWORD') }}"

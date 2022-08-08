@@ -3,6 +3,10 @@
   include_tasks:
     file: install_dependencies.yml
 
+- name: Install wkhtmltox
+  include_tasks:
+    file: install_wkhtmltopdf.yml
+
 - name: Install openhrms.yml
   include_tasks:
     file: install_openhrms.yml

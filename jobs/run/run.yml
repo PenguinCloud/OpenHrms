@@ -1,0 +1,4 @@
+---
+- name: Config openhrms
+  include_tasks:
+    file: config_openhrms.yml

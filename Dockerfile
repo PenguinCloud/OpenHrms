@@ -11,16 +11,19 @@ WORKDIR /opt/manager
 RUN apt update && apt dist-upgrade -y && apt auto-remove -y && apt clean -y
 
 # PUT YER ARGS in here
-ARG APP_TITLE="PTGAPP" # Change this to actual title for Default
+ARG APP_TITLE="OpenHRMS"
 
 # BUILD IT!
 RUN ansible-playbook build.yml -c local
 
 # PUT YER ENVS in here
-# ENV FOO="BAR"
-
+ENV DATABASE_HOST="postgresql"
+ENV DATABASE_USER="openhrms"
+ENV DATABASE_PASSWORD="password123"
+ENV DATABASE_PORT="5432"
+ENV ADMIN_PASSWORD="password"
 # Switch to non-root user
-USER ptg-user
+# USER ptg-user
 
 # Entrypoint time (aka runtime)
 ENTRYPOINT ["/bin/bash","/opt/manager/entrypoint.sh"]
