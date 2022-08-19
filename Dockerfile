@@ -12,6 +12,11 @@ RUN apt update && apt dist-upgrade -y && apt auto-remove -y && apt clean -y
 
 # PUT YER ARGS in here
 ARG APP_TITLE="OpenHRMS"
+ARG ODOO_REPO="https://github.com/odoo/odoo.git"
+ARG ODOO_VERSION="15.0"
+ARG OPENHRMS_REPO="https://github.com/CybroOdoo/OpenHRMS.git"
+ARG OPENHRMS_VERSION="15.0"
+ARG WKHTMLTOPDF_REPO="https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_amd64.deb"
 
 # BUILD IT!
 RUN ansible-playbook build.yml -c local

@@ -1,24 +1,18 @@
 ---
-- name: Create a new Python virtual environment for OpenHRMS
-  shell:
-    chdir: /opt/openhrms
-    cmd: python3 -m venv openhrms-venv
-
-- name: Activate the virtual environment
-  shell:
-    chdir: /opt/openhrms
-    cmd: source openhrms-venv/bin/activate
-
-- name: install pip dependencies
+- name: Install pip dependencies
   pip:
     chdir: /opt/openhrms
     name:
       - wheel
       - pandas
-    virtualenv: openhrms-venv
 
 - name: Install specified python requirements in indicated virtualenv
-  ansible.builtin.pip:
+  pip:
     chdir: /opt/openhrms
     requirements: requirements.txt
-    virtualenv: openhrms-venv
+    extra_args: --upgrade
+
+- name: install the package, force upgrade
+  pip:
+    name: jinja2
+    state: forcereinstall

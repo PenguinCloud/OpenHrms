@@ -1,0 +1,12 @@
+---
+- name: Check database connectivity
+  postgresql_ping:
+    db: "{{ db.name }}"
+    login_host: "{{ db.host }}"
+    login_user: "{{ db.user }}"
+    login_password: "{{ db.password }}"
+    port: "{{ db.port }}"
+  register: db_result
+  until: db_result is succeeded
+  retries: 10
+  delay: 10

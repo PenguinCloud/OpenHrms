@@ -1,0 +1,5 @@
+---
+- name: Start openhrms
+  shell:
+    chdir: /opt/openhrms/
+    cmd: ./odoo-bin -c /etc/openhrms-server.conf

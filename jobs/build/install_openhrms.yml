@@ -6,10 +6,10 @@
 
 - name: Git Clone Odoo 15
   git:
-    repo: https://github.com/odoo/odoo.git
+    repo: "{{ odoo.repo }}"
     dest: /opt/openhrms/
     depth: 1
-    version: 15.0
+    version: "{{ odoo.version }}"
     clone: yes
     update: yes
 
@@ -20,9 +20,9 @@
 
 - name: Git Clone OpenHRMS
   git:
-    repo: https://github.com/CybroOdoo/OpenHRMS.git
+    repo: "{{ openhrms.repo }}"
     dest: /opt/openhrms/openhrms
     depth: 1
-    version: 15.0
+    version: "{{ openhrms.version }}"
     clone: yes
     update: yes
