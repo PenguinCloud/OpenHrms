@@ -7,3 +7,10 @@
     version: "{{ odoo.version }}"
     clone: yes
     update: yes
+
+- name: Create config empty repo
+  file:
+    path: /etc/odoo
+    state: directory
+    mode: '0744'
+    owner: ptg-user

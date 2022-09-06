@@ -7,10 +7,6 @@ odoo:
   repo: "{{ lookup('ansible.builtin.env', 'ODOO_REPO') }}"
   version: "{{ lookup('ansible.builtin.env', 'ODOO_VERSION') }}"
 
-openhrms:
-  repo: "{{ lookup('ansible.builtin.env', 'OPENHRMS_REPO') }}"
-  version: "{{ lookup('ansible.builtin.env', 'OPENHRMS_VERSION') }}"
- 
 wkhtmltopdf_repo: "{{ lookup('ansible.builtin.env', 'WKHTMLTOPDF_REPO') }}"
 
 db:
@@ -19,5 +15,3 @@ db:
   user: "{{ lookup('ansible.builtin.env', 'DATABASE_USER') }}"
   password: "{{ lookup('ansible.builtin.env', 'DATABASE_PASSWORD') }}"
   port: "{{ lookup('ansible.builtin.env', 'DATABASE_PORT') }}"
-
-admin_password: "{{ lookup('ansible.builtin.env', 'ADMIN_PASSWORD') }}"

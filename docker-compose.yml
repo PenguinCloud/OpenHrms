@@ -7,16 +7,16 @@ services:
       - POSTGRES_DB=mydb
       - POSTGRES_PASSWORD=password123
       - POSTGRES_USER=odoo
-#    networks:
-#      - openhrms
+    networks:
+      - openhrms
 
   app:
     image: penguintech/openhrms
     build: .
     ports:
       - 8069:8069
-#    networks:
-#      - openhrms
+    networks:
+      - openhrms
     healthcheck:
       test: ["CMD", "ansible-playbook", "entrypoint.yml", "--tag", "test"]
       interval: 5m
@@ -24,5 +24,5 @@ services:
       retries: 5
       start_period: 5s
 
-#networks:
-#  openhrms:
+networks:
+  openhrms:

@@ -1,12 +1,12 @@
 ---
-- name: PROJECT NAME
+- name: OpenHRMS
   hosts: localhost
   connection: local
   vars_files:
     - vars/base.yml
-  become: yes
-  become_user: root
-  remote_user: root
+#  become: yes
+#  become_user: root
+#  remote_user: root
   tasks:
     - name: Include nodeType variables
       include_vars:
@@ -27,7 +27,4 @@
     - name: Execute application
       include_tasks:
         file: jobs/run/exec.yml
-##    - name: Run tests to make sure app is running as expected
-#      include_tasks:
-#        file: jobs/tests/test.yml
 

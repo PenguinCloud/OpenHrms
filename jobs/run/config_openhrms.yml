@@ -9,10 +9,5 @@
         --db_host={{ db.host }} \
         --db_port={{ db.port }} \
         --without-demo=all \
-        --save -c /etc/odoo-server.conf \
+        --save -c /etc/odoo/odoo-server.conf \
         --stop-after-init"
-
-#- name: Template config file
-#  template:
-#    src: templates/config.j2
-#    dest: /etc/odoo-server.conf
