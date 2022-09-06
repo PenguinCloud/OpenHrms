@@ -7,7 +7,11 @@
   include_tasks:
     file: install_wkhtmltopdf.yml
 
-- name: Install openhrms.yml
+- name: Install odoo
+  include_tasks:
+    file: install_odoo.yml
+
+- name: Install openhrms
   include_tasks:
     file: install_openhrms.yml
 

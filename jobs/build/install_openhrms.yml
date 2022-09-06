@@ -1,28 +1,12 @@
 ---
-- name: Create empty repo for openhrms
+- name: Create custom addons folder
   file:
-    path: /opt/openhrms
+    path: /opt/odoo-ptg/openhrms
     state: directory
 
-- name: Git Clone Odoo 15
-  git:
-    repo: "{{ odoo.repo }}"
-    dest: /opt/openhrms/
-    depth: 1
-    version: "{{ odoo.version }}"
-    clone: yes
-    update: yes
+- name: Unarchive openhrms zip file
+  unarchive:
+    src: modules/ohrms_core-15.0.1.1.1.zip
+    dest: /opt/odoo-ptg/openhrms
 
-- name: Create empty repo for openhrms
-  file:
-    path: /opt/openhrms/openhrms
-    state: directory
 
-- name: Git Clone OpenHRMS
-  git:
-    repo: "{{ openhrms.repo }}"
-    dest: /opt/openhrms/openhrms
-    depth: 1
-    version: "{{ openhrms.version }}"
-    clone: yes
-    update: yes

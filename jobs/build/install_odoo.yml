@@ -1,0 +1,9 @@
+---
+- name: Git Clone Odoo 15
+  git:
+    repo: "{{ odoo.repo }}"
+    dest: /opt/odoo-ptg/
+    depth: 1
+    version: "{{ odoo.version }}"
+    clone: yes
+    update: yes

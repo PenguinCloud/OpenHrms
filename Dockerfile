@@ -1,4 +1,4 @@
-FROM code-dal1.penguintech.group:5050/ptg/standards/docker-ansible-image:stable
+FROM code-dal1.penguintech.group:5050/ptg/standards/docker-ansible-image
 LABEL company="Penguin Tech Group LLC"
 LABEL org.opencontainers.image.authors="info@penguintech.group"
 LABEL license="GNU AGPL3"
@@ -22,13 +22,15 @@ ARG WKHTMLTOPDF_REPO="https://github.com/wkhtmltopdf/packaging/releases/download
 RUN ansible-playbook build.yml -c local
 
 # PUT YER ENVS in here
-ENV DATABASE_HOST="postgresql"
-ENV DATABASE_USER="openhrms"
+ENV DATABASE_NAME="mydb"
+ENV DATABASE_HOST="mydb"
+ENV DATABASE_USER="odoo"
 ENV DATABASE_PASSWORD="password123"
 ENV DATABASE_PORT="5432"
 ENV ADMIN_PASSWORD="password"
 # Switch to non-root user
 # USER ptg-user
 
+EXPOSE 8069
 # Entrypoint time (aka runtime)
 ENTRYPOINT ["/bin/bash","/opt/manager/entrypoint.sh"]

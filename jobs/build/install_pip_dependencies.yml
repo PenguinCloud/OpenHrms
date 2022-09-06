@@ -1,18 +1,18 @@
 ---
 - name: Install pip dependencies
   pip:
-    chdir: /opt/openhrms
+    chdir: /opt/odoo-ptg/
     name:
+      - setuptools
       - wheel
       - pandas
 
-- name: Install specified python requirements in indicated virtualenv
+- name: Install specified python requirements
   pip:
-    chdir: /opt/openhrms
+    chdir: /opt/odoo-ptg/
     requirements: requirements.txt
-    extra_args: --upgrade
 
-- name: install the package, force upgrade
+- name: Install correct version of jinja2, force upgrade
   pip:
     name: jinja2
     state: forcereinstall

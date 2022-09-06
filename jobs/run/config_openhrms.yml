@@ -1,5 +1,18 @@
 ---
-- name: Template co0nfig too /etc/openhrms-server.conf
-  template:
-    src: templates/config.j2
-    dest: /etc/openhrms-server.conf
+- name: Run shell command
+  shell:
+    chdir: /opt/odoo-ptg/
+    cmd: "./odoo-bin --addons-path=/opt/odoo-ptg/addons,/opt/odoo-ptg/openhrms \
+        --database={{ db.name }}
+        --db_user={{ db.user}} \
+        --db_password={{ db.password }} \
+        --db_host={{ db.host }} \
+        --db_port={{ db.port }} \
+        --without-demo=all \
+        --save -c /etc/odoo-server.conf \
+        --stop-after-init"
+
+#- name: Template config file
+#  template:
+#    src: templates/config.j2
+#    dest: /etc/odoo-server.conf

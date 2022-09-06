@@ -1,5 +1,4 @@
 ---
 - name: Start openhrms
   shell:
-    chdir: /opt/openhrms/
-    cmd: ./odoo-bin -c /etc/openhrms-server.conf
+    cmd: /opt/odoo-ptg/odoo-bin -c /etc/odoo-server.conf -i INIT

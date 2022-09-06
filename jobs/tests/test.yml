@@ -6,7 +6,8 @@
     login_user: "{{ db.user }}"
     login_password: "{{ db.password }}"
     port: "{{ db.port }}"
-  register: db_result
-  until: db_result is succeeded
+  register: ping_database
+  failed_when: ping_database.warnings is defined
+  until: ping_database is succeeded
   retries: 10
   delay: 10

@@ -18,15 +18,16 @@
       include_vars:
         file: "vars/{{ lookup('env', 'COMPUTE_ENV') | default( 'base', True) }}.yml"
       ignore_errors: yes
-    - name: Run And Configure
-      include_tasks:
-        file: jobs/run/run.yml
-# Moving test here test will not run after execute because of daemon
     - name: Run tests to make sure app is running as expected
       include_tasks:
         file: jobs/tests/test.yml
+    - name: Run And Configure
+      include_tasks:
+        file: jobs/run/run.yml
     - name: Execute application
       include_tasks:
         file: jobs/run/exec.yml
-
+##    - name: Run tests to make sure app is running as expected
+#      include_tasks:
+#        file: jobs/tests/test.yml
 
