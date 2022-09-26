@@ -3,8 +3,6 @@
   pip:
     chdir: /opt/odoo-ptg/
     name:
-      - setuptools
-      - wheel
       - pandas
 
 - name: Install specified python requirements
@@ -14,5 +12,7 @@
 
 - name: Install correct version of jinja2, force upgrade
   pip:
-    name: jinja2
+    name:
+    - jinja2
+    - python-dateutil
     state: forcereinstall
