@@ -1,18 +1,6 @@
 ---
-- name: Install pip dependencies
-  pip:
-    chdir: /opt/odoo-ptg/
-    name:
-      - pandas
-
 - name: Install specified python requirements
   pip:
-    chdir: /opt/odoo-ptg/
+    chdir: "{{ playbook_dir }}/data/"
     requirements: requirements.txt
-
-- name: Install correct version of jinja2, force upgrade
-  pip:
-    name:
-    - jinja2
-    - python-dateutil
     state: forcereinstall

@@ -6,7 +6,7 @@
 
 - name: Unarchive openhrms zip file
   unarchive:
-    src: modules/ohrms_core-15.0.1.1.1.zip
+    src: libs/ohrms_core-15.0.1.1.1.zip
     dest: /opt/odoo-ptg/openhrms
 
 
