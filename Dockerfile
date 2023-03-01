@@ -29,6 +29,5 @@ ENV DATABASE_PORT="5432"
 # Switch to non-root user
 USER ptg-user
 
-EXPOSE 8069
 # Entrypoint time (aka runtime)
 ENTRYPOINT ["/bin/bash","/opt/manager/entrypoint.sh"]
