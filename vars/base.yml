@@ -2,3 +2,16 @@ run:
   user: ptg-user
 app:
   title: "{{ lookup('ansible.builtin.env', 'APP_TILE') }}"
+
+odoo:
+  repo: "{{ lookup('ansible.builtin.env', 'ODOO_REPO') }}"
+  version: "{{ lookup('ansible.builtin.env', 'ODOO_VERSION') }}"
+
+wkhtmltopdf_repo: "{{ lookup('ansible.builtin.env', 'WKHTMLTOPDF_REPO') }}"
+
+db:
+  host: "{{ lookup('ansible.builtin.env', 'DATABASE_HOST') }}"
+  name: "{{ lookup('ansible.builtin.env', 'DATABASE_NAME') }}"
+  user: "{{ lookup('ansible.builtin.env', 'DATABASE_USER') }}"
+  password: "{{ lookup('ansible.builtin.env', 'DATABASE_PASSWORD') }}"
+  port: "{{ lookup('ansible.builtin.env', 'DATABASE_PORT') }}"

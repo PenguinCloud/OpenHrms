@@ -1,0 +1,4 @@
+---
+- name: Install a .deb package from the internet
+  apt:
+    deb: "{{ wkhtmltopdf_repo }}"

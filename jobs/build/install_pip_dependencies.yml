@@ -1,0 +1,6 @@
+---
+- name: Install specified python requirements
+  pip:
+    chdir: "{{ playbook_dir }}/configs/"
+    requirements: requirements.txt
+    state: forcereinstall

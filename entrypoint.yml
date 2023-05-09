@@ -1,12 +1,9 @@
 ---
-- name: PROJECT NAME
+- name: OpenHRMS
   hosts: localhost
   connection: local
   vars_files:
     - vars/base.yml
-  become: yes
-  become_user: root
-  remote_user: root
   tasks:
     - name: Include nodeType variables
       include_vars:
@@ -18,13 +15,14 @@
       include_vars:
         file: "vars/{{ lookup('env', 'COMPUTE_ENV') | default( 'base', True) }}.yml"
       ignore_errors: yes
+# Put this in here to allow the databse to start first
+    - name: Run tests to make sure app is running as expected
+      include_tasks:
+        file: jobs/tests/test.yml
     - name: Run And Configure
       include_tasks:
         file: jobs/run/run.yml
     - name: Execute application
       include_tasks:
         file: jobs/run/exec.yml
-    - name: Run tests to make sure app is running as expected
-      include_tasks:
-        file: jobs/tests/tests.yml
 

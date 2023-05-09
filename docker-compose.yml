@@ -1,5 +1,29 @@
 ---
 version: "2.4"
 services:
+  mydb:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=mydb
+      - POSTGRES_PASSWORD=password123
+      - POSTGRES_USER=odoo
+    networks:
+      - openhrms
+
   app:
-    image: penguintech/core-ansible
+    image: penguintech/openhrms
+    build: .
+    ports:
+      - 8069:8069
+      - 8072:8072
+    networks:
+      - openhrms
+    healthcheck:
+      test: ["CMD", "ansible-playbook", "entrypoint.yml", "--tag", "test"]
+      interval: 5m
+      timeout: 10s
+      retries: 5
+      start_period: 5s
+
+networks:
+  openhrms:

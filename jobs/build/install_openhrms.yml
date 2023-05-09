@@ -1,0 +1,12 @@
+---
+- name: Create custom addons folder
+  file:
+    path: /opt/odoo-ptg/openhrms
+    state: directory
+
+- name: Unarchive openhrms zip file
+  unarchive:
+    src: libs/ohrms_core-15.0.1.1.1.zip
+    dest: /opt/odoo-ptg/openhrms
+
+

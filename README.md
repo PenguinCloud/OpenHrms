@@ -1,6 +1,9 @@
-# Project Overview
-<< This is a template. Copy this templated repository to make new projects. Once done, add a 1 paragraph introduction / elevator speech about your project.
->>
+# Odoo OpenHrms
+
+>>Odoo is a suite of business management software tools including, for example, CRM, e-commerce, billing, accounting, manufacturing, warehouse, project management, and inventory management.
+>  Open HRMS is an open-source HR Management software that envisions building a happier workforce. Open HRMS takes care of all your HR processes while you take care of your employees. From onboarding and attendance management to time tracking and appraisals, Open HRMS has got it all covered. 
+> The most advanced Open Source HR Management software works well for both small and large-sized enterprises. With Open HRMS, you can pick exactly what your business needs and leave behind the rest. 
+> The modules are self-sufficient in managing and solving every major hurdle in the HR management path.
 # Why this image vs others
 ## Built in self testing and healing
 All PTG builds have unit and dynamic tests as part of the build of their images, as well as during runtime to ensure the system keeps running as expected. If the system falls out of bounds of the test, the images have some self healing capabilities fix common minor problems.

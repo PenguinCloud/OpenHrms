@@ -1,0 +1,20 @@
+---
+- name: Install dependencies
+  include_tasks:
+    file: install_dependencies.yml
+
+- name: Install wkhtmltox
+  include_tasks:
+    file: install_wkhtmltopdf.yml
+
+- name: Install odoo
+  include_tasks:
+    file: install_odoo.yml
+
+- name: Install openhrms
+  include_tasks:
+    file: install_openhrms.yml
+
+- name: Install pip dependencies
+  include_tasks:
+    file: install_pip_dependencies.yml

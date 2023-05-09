@@ -1,0 +1,14 @@
+---
+- name: Run shell command
+  shell:
+    chdir: /opt/odoo-ptg/
+    cmd: "./odoo-bin --addons-path=/opt/odoo-ptg/addons,/opt/odoo-ptg/openhrms \
+        --database={{ db.name }}
+        --db_user={{ db.user}} \
+        --db_password={{ db.password }} \
+        --db_host={{ db.host }} \
+        --db_port={{ db.port }} \
+        --without-demo=all \
+        --proxy-mode \
+        --save -c /etc/odoo/odoo-server.conf \
+        --stop-after-init"
